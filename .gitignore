@@ -6,3 +6,4 @@
 /pyvenv.cfg
 /.coverage
 /htmlcov/
+/get-pip.py
