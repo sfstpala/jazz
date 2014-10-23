@@ -15,7 +15,7 @@ class TestCase(tornado.testing.AsyncHTTPTestCase,
 class MainTest(TestCase):
 
     main = staticmethod(pkg_resources.load_entry_point(
-        "tornado-jazz", "console_scripts", "jazz"))
+        "devbliss-jazz", "console_scripts", "jazz"))
 
     @unittest.mock.patch("jazz.Application.listen")
     def test_main(self, listen):
@@ -41,7 +41,7 @@ class MainTest(TestCase):
 
 class DistributionTest(TestCase):
 
-    dist = pkg_resources.get_distribution("tornado-jazz")
+    dist = pkg_resources.get_distribution("devbliss-jazz")
 
     def test_version(self):
         self.assertEqual(jazz.__version__, self.dist.version)

@@ -3,7 +3,7 @@ import tornado.web
 import tornado.util
 
 
-__version__ = pkg_resources.get_distribution("tornado-jazz").version
+__version__ = pkg_resources.get_distribution("devbliss-jazz").version
 
 
 class RequestHandler(tornado.web.RequestHandler):
@@ -21,8 +21,8 @@ class Application(tornado.web.Application):
     handlers = [
         ("/", tornado.util.import_object(
             "jazz.index.IndexHandler")),
-        ("/play", tornado.util.import_object(
-            "jazz.play.PlayHandler")),
+        ("/notes", tornado.util.import_object(
+            "jazz.notes.NotesHandler")),
         (".*", ErrorHandler, {"status_code": 404})
     ]
 

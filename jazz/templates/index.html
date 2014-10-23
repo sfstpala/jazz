@@ -4,36 +4,36 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{ static_url('style.css') }}">
   </head>
-  <a class="key" data-freq="523.3">C5</a>
-  <a class="key black" data-freq="554.4">C#</a>
-  <a class="key" data-freq="587.3">D</a>
-  <a class="key black" data-freq="622.3">Eb</a>
-  <a class="key" data-freq="659.3">E</a>
-  <a class="key" data-freq="698.5">F</a>
-  <a class="key black" data-freq="740.0">F#</a>
-  <a class="key" data-freq="784.0">G</a>
-  <a class="key black" data-freq="830.6">G#</a>
-  <a class="key" data-freq="880.0">A</a>
-  <a class="key black" data-freq="932.3">Bb</a>
-  <a class="key" data-freq="987.8">B</a>
-  <a class="key" data-freq="1047">C6</a>
-  <a class="key black" data-freq="1109">C#</a>
-  <a class="key" data-freq="1175">D</a>
-  <a class="key black" data-freq="1245">Eb</a>
-  <a class="key" data-freq="1319">E</a>
-  <a class="key" data-freq="1397">F</a>
-  <a class="key black" data-freq="1480">F#</a>
-  <a class="key" data-freq="1568">G</a>
-  <a class="key black" data-freq="1661">G#</a>
-  <a class="key" data-freq="1760">A</a>
-  <a class="key black" data-freq="1865">Bd</a>
-  <a class="key" data-freq="1976">B</a>
-  <a class="key" data-freq="2093">C7</a>
+  <a class="key" data-n="52">C5</a>
+  <a class="key black" data-n="53">C#</a>
+  <a class="key" data-n="54">D</a>
+  <a class="key black" data-n="55">Eb</a>
+  <a class="key" data-n="56">E</a>
+  <a class="key" data-n="57">F</a>
+  <a class="key black" data-n="58">F#</a>
+  <a class="key" data-n="59">G</a>
+  <a class="key black" data-n="60">G#</a>
+  <a class="key" data-n="61">A</a>
+  <a class="key black" data-n="62">Bb</a>
+  <a class="key" data-n="63">B</a>
+  <a class="key" data-n="64">C6</a>
+  <a class="key black" data-n="65">C#</a>
+  <a class="key" data-n="66">D</a>
+  <a class="key black" data-n="67">Eb</a>
+  <a class="key" data-n="68">E</a>
+  <a class="key" data-n="69">F</a>
+  <a class="key black" data-n="70">F#</a>
+  <a class="key" data-n="71">G</a>
+  <a class="key black" data-n="72">G#</a>
+  <a class="key" data-n="73">A</a>
+  <a class="key black" data-n="74">Bd</a>
+  <a class="key" data-n="75">B</a>
+  <a class="key" data-n="76">C7</a>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script>
    $(function () {
        $("a.key").click(function (e) {
-           $.ajax("/play", {type: "POST", data: {"freq": $(this).attr("data-freq")}, success: function (r) {
+           $.ajax("/notes", {type: "POST", data: {"n": $(this).attr("data-n")}, success: function (r) {
                console.log(r);
            }, error: function (e) { console.log(e); }});
            e.preventDefault();

@@ -2,12 +2,13 @@ import setuptools
 
 
 setuptools.setup(
-    name="tornado-jazz", version="0.0.0",
+    name="devbliss-jazz", version="0.0.0",
     packages=setuptools.find_packages(),
     test_suite="jazz.tests",
     author="Stefano Palazzo",
     author_email="stefano.palazzo@gmail.com",
     url="https://github.com/sfstpala/jazz/",
+    license="ISC License",
     classifiers=[
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.4",

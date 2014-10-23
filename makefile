@@ -20,19 +20,7 @@ bin/coverage: bin/pip
 bin/flake8: bin/pip
 	bin/pip install flake8
 
-ifdef DEB_HOST_ARCH
-DESTDIR ?= /
-PREFIX ?= usr/
-install:
-	@$(python) setup.py install --no-compile --prefix="$(PREFIX)" --root="$(DESTDIR)" --install-layout=deb
-endif
-
-deb:
-	rm -rf build; mkdir build; cp -r $$(find * -not -name "build" -prune) build
-	cd build/; debuild -us -uc -tc && lintian ../*.deb ../*.dsc ../*.changes
-
 clean:
 	rm -rf __pycache__ $(shell find jazz -name "__pycache__" -type d)
 	rm -rf *.egg-info *.egg build bin lib include share pyvenv.cfg get-pip.py
 	rm -rf htmlcov .coverage
-	rm -rf build *.dsc *.tar.gz *.build *.changes *.deb
