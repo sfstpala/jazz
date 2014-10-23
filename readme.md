@@ -16,7 +16,7 @@ To make Jazz work:
 Type `make test` to run the test suite. This will install all of the dependencies you need,
 as long as you have Python 3.4 installed.
 
-You can run the server locally by typing in `bin/jazz --debug` and going to `http://localhost:3000/`.
+You can run the server locally by typing in `bin/jazz --debug` and going to `http://localhost:3000/`. Make sure you have the `beep` program installed and the `pcspkr` kernel module loaded.
 
 ## Installing
 
