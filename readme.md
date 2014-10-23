@@ -23,7 +23,7 @@ You can run the server locally by typing in `bin/jazz --debug` and going to `htt
 To install the server, type `python3.4 setup.py install`. On Ubuntu, you will need to install
 a few dependencies:
 
-    sudo apt-get install python3-setuptools python3-tornado python3-docopt
+    sudo apt-get install beep python3-setuptools python3-tornado python3-docopt
 
 If you also install `daemon`, you can run and stop the server like this:
 
