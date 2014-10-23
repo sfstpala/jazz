@@ -8,7 +8,7 @@ class NotesHandlerTest(jazz.tests.TestCase):
 
     @unittest.mock.patch("tornado.process.Subprocess")
     def test_get(self, Subprocess):
-        body = "n=49"
+        body = "n=73"  # A6
         process = Subprocess.return_value
         process.stdout.read_until_close.return_value = (
             concurrent.futures.Future())
@@ -16,7 +16,7 @@ class NotesHandlerTest(jazz.tests.TestCase):
         process.proc.wait.return_value = 0
         res = self.fetch("/notes", method="POST", body=body)
         Subprocess.assert_called_once_with(
-            "beep -f 440.0", shell=True,
+            "beep -f 1760.0", shell=True,
             stdin=tornado.process.Subprocess.STREAM,
             stdout=tornado.process.Subprocess.STREAM,
             stderr=tornado.process.Subprocess.STREAM)

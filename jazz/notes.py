@@ -14,7 +14,7 @@ class NotesHandler(jazz.RequestHandler):
         except ValueError:
             raise tornado.web.HTTPError(400)
         self.proc = tornado.process.Subprocess(
-            "beep -f {}".format(freq), shell=True,
+            "beep -f {:.1f}".format(freq), shell=True,
             stdin=tornado.process.Subprocess.STREAM,
             stdout=tornado.process.Subprocess.STREAM,
             stderr=tornado.process.Subprocess.STREAM)
