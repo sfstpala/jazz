@@ -2,29 +2,29 @@ import unittest.mock
 import os
 import pkg_resources
 import tornado.testing
-import hello
+import jazz
 
 
 class TestCase(tornado.testing.AsyncHTTPTestCase,
                tornado.testing.LogTrapTestCase):
 
     def get_app(self):
-        return hello.Application()
+        return jazz.Application()
 
 
 class MainTest(TestCase):
 
     main = staticmethod(pkg_resources.load_entry_point(
-        "tornado-hello", "console_scripts", "hello"))
+        "tornado-jazz", "console_scripts", "jazz"))
 
-    @unittest.mock.patch("hello.Application.listen")
+    @unittest.mock.patch("jazz.Application.listen")
     def test_main(self, listen):
         ioloop = unittest.mock.Mock()
         self.main(["--debug"], ioloop=ioloop)
         listen.assert_called_once_with(port="3000")
         ioloop.start.assert_called_once()
 
-    @unittest.mock.patch("hello.Application.listen")
+    @unittest.mock.patch("jazz.Application.listen")
     def test_main_exit(self, listen):
         ioloop = unittest.mock.Mock()
         ioloop.start.side_effect = KeyboardInterrupt()
@@ -41,11 +41,11 @@ class MainTest(TestCase):
 
 class DistributionTest(TestCase):
 
-    dist = pkg_resources.get_distribution("tornado-hello")
+    dist = pkg_resources.get_distribution("tornado-jazz")
 
     def test_version(self):
-        self.assertEqual(hello.__version__, self.dist.version)
-        self.assertRegex(hello.__version__, r'\d+\.\d+\.\d+')
+        self.assertEqual(jazz.__version__, self.dist.version)
+        self.assertRegex(jazz.__version__, r'\d+\.\d+\.\d+')
 
     def test_package_data(self):
         def tree(directory):

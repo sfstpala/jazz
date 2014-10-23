@@ -1,7 +1,7 @@
-import hello
+import jazz
 
 
-class IndexHandler(hello.RequestHandler):
+class IndexHandler(jazz.RequestHandler):
 
     def get(self):
         self.render("index.html")

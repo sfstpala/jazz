@@ -3,7 +3,7 @@ import tornado.web
 import tornado.util
 
 
-__version__ = pkg_resources.get_distribution("tornado-hello").version
+__version__ = pkg_resources.get_distribution("tornado-jazz").version
 
 
 class RequestHandler(tornado.web.RequestHandler):
@@ -20,15 +20,17 @@ class Application(tornado.web.Application):
 
     handlers = [
         ("/", tornado.util.import_object(
-            "hello.index.IndexHandler")),
+            "jazz.index.IndexHandler")),
+        ("/play", tornado.util.import_object(
+            "jazz.play.PlayHandler")),
         (".*", ErrorHandler, {"status_code": 404})
     ]
 
     settings = {
         "template_path": pkg_resources.resource_filename(
-            "hello", "templates"),
+            "jazz", "templates"),
         "static_path": pkg_resources.resource_filename(
-            "hello", "static"),
+            "jazz", "static"),
     }
 
     def __init__(self, **kwargs):

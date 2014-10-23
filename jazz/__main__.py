@@ -1,9 +1,9 @@
 '''
-hello
+jazz
 
 Usage:
-    hello [--port=<port>] [--debug]
-    hello (--help | --version)
+    jazz [--port=<port>] [--debug]
+    jazz (--help | --version)
 
 Options:
     --port=<port>      http port number [default: 3000]
@@ -17,12 +17,12 @@ import sys
 import tornado.ioloop
 import tornado.log
 import docopt
-import hello
+import jazz
 
 
 def main(argv=sys.argv[1:], ioloop=None):
     try:
-        args = docopt.docopt(__doc__, argv=argv, version=hello.__version__)
+        args = docopt.docopt(__doc__, argv=argv, version=jazz.__version__)
     except docopt.DocoptExit as e:
         print(str(e), file=sys.stderr)
         return 2
@@ -30,7 +30,7 @@ def main(argv=sys.argv[1:], ioloop=None):
         return 0
     if args.get("--debug"):
         tornado.log.enable_pretty_logging()
-    application = hello.Application(debug=args.get("--debug", False))
+    application = jazz.Application(debug=args.get("--debug", False))
     application.listen(port=args.get("--port", 3000))
     try:
         (ioloop or tornado.ioloop.IOLoop.instance()).start()
