@@ -4,6 +4,12 @@ jazz
 This is a web-app that provides a piano-style keyboard connected to the server's
 [PC speaker](http://en.wikipedia.org/wiki/PC_speaker).
 
+## Installation
+
+You can install the latest release from the Python package index:
+
+    pip3.4 install devbliss-jazz
+
 ## Setup
 
 To make Jazz work:
