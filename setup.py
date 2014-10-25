@@ -2,7 +2,7 @@ import setuptools
 
 
 setuptools.setup(
-    name="devbliss-jazz", version="0.0.0",
+    name="devbliss-jazz", version="0.1.0",
     packages=setuptools.find_packages(),
     test_suite="jazz.tests",
     author="Stefano Palazzo",
